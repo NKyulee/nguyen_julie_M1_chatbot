@@ -1,0 +1,39 @@
+.ChatNiversaire,
+.ChatLockHolmes,
+.ChatRyPotter,
+.MeowIcon {
+  width: 80px;
+}
+
+.catbox {
+  width: 70px;
+}
+
+.title {
+  margin-right: 2;
+}
+
+.navbar {
+  display: flex;
+}
+
+.appBar {
+  z-index: 1;
+  overflow: inherit;
+}
+
+.drawer {
+  z-index: 2;
+  width: 240;
+  flex-shrink: initial;
+}
+
+.drawerPaper {
+  width: 240;
+  margin-top: 1000px;
+}
+
+.drawerContainer {
+  overflow: auto;
+  margin-top: 10px;
+}

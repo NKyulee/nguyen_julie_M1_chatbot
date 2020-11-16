@@ -1,0 +1,9 @@
+.botContainer {
+  display: flex;
+}
+
+.ChatNiversaire,
+.ChatSherlockHolmes,
+.ChatHarryPotter {
+  width: 80px;
+}

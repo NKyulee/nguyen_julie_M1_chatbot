@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import Navbar from "./layout/Navbar";
+import BotContainer from "./containers/BotContainer";
+import ChatContainer from "./containers/ChatContainer";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+import "./App.css";
+import React, { Component } from "react";
+
+import { Box, Grid } from "@material-ui/core";
+import Homepage from "./layout/Homepage";
+
+export class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  setCurrentBot = (bot) => {
+    this.setState((state, props) => {
+      return { currentBot: bot };
+    });
+  };
+
+  render() {
+    return (
+      <Box>
+        <Navbar />
+        <Grid
+          container
+          style={{ marginTop: "75px", height: "calc(100vh - 75px)" }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+          <BotContainer setCurrentBot={this.setCurrentBot} />
+          {this.state.currentBot ? (
+            <ChatContainer currentBot={this.state.currentBot} />
+          ) : (
+            <Homepage />
+          )}
+        </Grid>
+      </Box>
+    );
+  }
 }
 
 export default App;

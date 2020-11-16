@@ -1,0 +1,12 @@
+.homePageChatBot .paperChatBot {
+  background-color: #fad0d7;
+  height: calc(100vh - 75px);
+  width: 100%;
+}
+
+.catLaptop {
+  width: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
