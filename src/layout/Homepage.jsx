@@ -9,7 +9,7 @@ import "./Homepage.css";
 export class Homepage extends Component {
   render() {
     return (
-      <Grid item xs={8} className="homePageChatBot">
+      <Grid item xs={10} className="homePageChatBot">
         <Paper className="paperChatBot">
           <img className="catLaptop" alt="catLaptop" src={catLaptop} />
           <Typography variant="h5" align="center">
@@ -19,8 +19,8 @@ export class Homepage extends Component {
             Essayer de parler avec nos chat, certains ont des curieuses choses à
             dire
           </Typography>
-          <Typography>
-            Veuillez selectionner un chat et dites-lui "Miaou" pour commencer
+          <Typography align="center">
+            Veuillez selectionner un chat et dites-lui "Miaou" pour commencer.
           </Typography>
         </Paper>
       </Grid>

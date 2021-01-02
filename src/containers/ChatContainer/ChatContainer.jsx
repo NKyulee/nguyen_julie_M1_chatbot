@@ -1,60 +1,71 @@
 import React, { Component } from "react";
 
-import {
-  Grid,
-  Paper,
-  Typography,
-  TextField,
-  Button,
-  FormControl,
-} from "@material-ui/core";
-
+import { Grid, Paper, TextField, Button } from "@material-ui/core";
 import SendIcon from "@material-ui/icons/Send";
 
-import MessageContainer from "../MessageContainer/";
+import InfosContact from "./InfosContact";
+import MessagesContainer from "../MessagesContainer";
 import "./ChatContainer.css";
 
 export class ChatContainer extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      input: "",
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  handleChange(e) {
+    this.setState({ input: e.target.value });
+  }
+
+  inputToMessage() {
+    const message = {
+      from: "user",
+      to: this.props.currentBot.name,
+      date: new Date(),
+      content: this.state.input,
+    };
+    this.props.addMessage(this.props.currentBot.id, message);
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    if (this.state.input === "") {
+      return;
+    }
+    this.inputToMessage();
+    this.setState({ input: "" });
+  }
+
   render() {
     return (
-      <Grid item xs={8} className="chatContainer">
+      <Grid item xs={10} className="chatContainer">
         <Paper elevation={1} className="paper">
-          <img
-            id="imgForChatContainer"
-            className={this.props.currentBot.class}
-            alt={this.props.currentBot.class}
-            src={this.props.currentBot.avatar}
-          />
-          <Typography variant="h5" align="center">
-            {`Vous parlez avec ${this.props.currentBot.name}`}
-          </Typography>
-          <Typography variant="overline" align="center">
-            {this.props.currentBot.description}
-          </Typography>
-          <MessageContainer />
-          <FormControl container xs={12}>
+          <InfosContact currentBot={this.props.currentBot} />
+          <MessagesContainer messages={this.props.currentBot.messages} />
+
+          <form onSubmit={this.handleSubmit}>
             <TextField
-              size="small"
-              item
-              xs={9}
               id="outlined-basic"
               variant="outlined"
               placeholder="Miaou ?"
+              value={this.state.input}
+              onChange={this.handleChange}
             />
             <Button
-              item
-              xs={3}
               variant="contained"
-              size="large"
               color="secondary"
               endIcon={<SendIcon />}
+              type="submit"
+              value="Submit"
             >
-              Envoyé
+              Envoyer
             </Button>
-          </FormControl>
+          </form>
         </Paper>
       </Grid>
     );

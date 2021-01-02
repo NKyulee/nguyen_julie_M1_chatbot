@@ -1,0 +1,14 @@
+.message {
+  display: flex;
+  background-color: rgb(184, 184, 184);
+  padding: 20px;
+  border-radius: 30px;
+  min-width: 40px;
+  max-width: 220px;
+  min-height: 40px;
+  margin: 20px;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
