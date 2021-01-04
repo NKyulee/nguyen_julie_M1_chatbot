@@ -8,43 +8,12 @@ import React, { Component } from "react";
 import { Box, Grid } from "@material-ui/core";
 import Homepage from "./layout/Homepage";
 
-import Cat1 from "./assets/Cat1.gif";
-import Cat2 from "./assets/Cat2.gif";
-import Cat3 from "./assets/Cat3.gif";
-
-const catbot = [
-  {
-    id: "0",
-    name: "ChatNiversaire",
-    class: "ChatNiversaire",
-    avatar: Cat1,
-    description:
-      "Miaou, je suis le ChatNiversaire ! J'aime particulierement souhaiter les anniversaires et offrir des cadeaux.",
-    messages: [],
-  },
-  {
-    id: "1",
-    name: "Chat-Lock Holmes",
-    class: "ChatSherlockHolmes",
-    avatar: Cat2,
-    description:
-      "Miaou, on m'appelle Chat-Lock Homes. Élémentaire mon cher Chatson.",
-    messages: [],
-  },
-  {
-    id: "2",
-    name: "ChatGicien",
-    class: "ChatGicien",
-    avatar: Cat3,
-    description: "Miaou, Cadabra !",
-    messages: [],
-  },
-];
+import { catBots } from "./Bots/bots";
 
 export class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { bots: catbot };
+    this.state = { bots: catBots };
 
     this.addMessage = this.addMessage.bind(this);
   }

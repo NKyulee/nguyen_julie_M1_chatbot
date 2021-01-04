@@ -15,7 +15,7 @@ export class BotContainer extends Component {
         item
         xs={2}
         style={{
-          minWidth: "300px",
+          height: "calc(100vh - 75px)",
         }}
       >
         <List
